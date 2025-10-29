@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korea Aluminum - 프리미엄 알루미늄 가공 전문기업</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2a5298;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.85), rgba(42, 82, 152, 0.85)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23c0c0c0" width="1200" height="400"/><path fill="%23e0e0e0" d="M0,200 Q300,150 600,200 T1200,200 L1200,400 L0,400 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #1e3c72;
+            font-weight: 700;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2a5298, #1e3c72);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        .products {
+            background: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #b8c6d9, #d4dce6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #1e3c72;
+        }
+
+        .product-specs {
+            list-style: none;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .product-specs li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .product-specs li:last-child {
+            border-bottom: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            position: relative;
+            animation: slideDown 0.3s;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close {
+            position: absolute;
+            right: 1.5rem;
+            top: 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #b8c6d9, #d4dce6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .cert-badges {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .cert-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+            }
+            
+            nav li {
+                margin: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>KOREA ALUMINUM</h1>
+                    <p class="tagline">프리미엄 알루미늄 가공의 선두주자</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">홈</a></li>
+            <li><a href="#about">회사소개</a></li>
+            <li><a href="#products">제품안내</a></li>
+            <li><a href="#contact">문의하기</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>30년 전통의 알루미늄 가공 전문기업</h2>
+            <p>최첨단 기술과 엄격한 품질관리로 국내외 시장에서 신뢰받는 알루미늄 제품을 생산합니다</p>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">KOREA ALUMINUM의 강점</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>첨단 생산설비</h3>
+                    <p>독일제 최신 압출 라인과 CNC 가공 시스템을 통해 정밀한 알루미늄 제품을 생산합니다. 자동화된 생산 공정으로 일관된 품질을 보장합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>엄격한 품질관리</h3>
+                    <p>ISO 9001 인증 품질관리 시스템을 통해 원자재 입고부터 최종 제품 출하까지 전 공정에서 철저한 검사를 실시합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>다양한 인증 보유</h3>
+                    <p>KS 인증, ISO 14001 환경경영 인증, 조달청 우수제품 지정 등 공신력 있는 인증으로 제품의 신뢰성을 입증합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>글로벌 공급망</h3>
+                    <p>국내는 물론 동남아시아, 중동 지역까지 안정적인 공급 네트워크를 구축하여 적기 납품을 실현합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section products" id="products">
+        <div class="container">
+            <h2 class="section-title">주요 제품 라인업</h2>
+            <div class="product-grid">
+                <div class="product-item" onclick="openModal('product1')">
+                    <div class="product-image">🔲</div>
+                    <div class="product-info">
+                        <h3>알루미늄 압출형재</h3>
+                        <p>건축, 산업용 다목적 프로파일</p>
+                        <ul class="product-specs">
+                            <li>합금: 6063, 6061</li>
+                            <li>표면처리: 아노다이징, 분체도장</li>
+                            <li>규격: 맞춤 제작 가능</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="openModal('product2')">
+                    <div class="product-image">▭</div>
+                    <div class="product-info">
+                        <h3>알루미늄 판재</h3>
+                        <p>건축 외장재 및 산업용 소재</p>
+                        <ul class="product-specs">
+                            <li>합금: 1050, 5052, 6061</li>
+                            <li>두께: 0.5mm ~ 50mm</li>
+                            <li>표면: 밀판, 연마, 코팅</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="openModal('product3')">
+                    <div class="product-image">⬡</div>
+                    <div class="product-info">
+                        <h3>건축용 시스템 창호</h3>
+                        <p>고단열 고기밀 창호 시스템</p>
+                        <ul class="product-specs">
+                            <li>단열성: 최대 3등급</li>
+                            <li>기밀성: 1등급</li>
+                            <li>친환경 단열 구조</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="openModal('product4')">
+                    <div class="product-image">◈</div>
+                    <div class="product-info">
+                        <h3>산업용 정밀 부품</h3>
+                        <p>CNC 가공 맞춤형 부품</p>
+                        <ul class="product-specs">
+                            <li>공차: ±0.01mm</li>
+                            <li>후처리: 아노다이징, 도금</li>
+                            <li>소량 생산 가능</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="openModal('product5')">
+                    <div class="product-image">▱</div>
+                    <div class="product-info">
+                        <h3>방열판 및 히트싱크</h3>
+                        <p>전자기기용 냉각 솔루션</p>
+                        <ul class="product-specs">
+                            <li>열전도율: 우수</li>
+                            <li>설계 최적화 지원</li>
+                            <li>맞춤형 제작</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="openModal('product6')">
+                    <div class="product-image">⬢</div>
+                    <div class="product-info">
+                        <h3>알루미늄 파이프</h3>
+                        <p>구조용 및 배관용 파이프</p>
+                        <ul class="product-specs">
+                            <li>외경: Ø10mm ~ Ø300mm</li>
+                            <li>두께: 1mm ~ 20mm</li>
+                            <li>길이: 6m 표준 (절단 가능)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="productModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>회사 정보</h4>
+                    <p><strong>KOREA ALUMINUM CO., LTD.</strong></p>
+                    <p>주소: 경기도 화성시 향남읍 알루미늄로 123</p>
+                    <p>대표전화: 031-1234-5678</p>
+                    <p>팩스: 031-1234-5679</p>
+                    <p>이메일: info@koreaaluminum.co.kr</p>
+                </div>
+                <div class="footer-section">
+                    <h4>사업 분야</h4>
+                    <p>• 알루미늄 압출 가공<br>
+                       • 표면처리 (아노다이징, 도장)<br>
+                       • 정밀 CNC 가공<br>
+                       • 건축용 시스템 창호<br>
+                       • 산업용 알루미늄 부품</p>
+                </div>
+                <div class="footer-section">
+                    <h4>인증 현황</h4>
+                    <div class="cert-badges">
+                        <div class="cert-badge">ISO 9001</div>
+                        <div class="cert-badge">ISO 14001</div>
+                        <div class="cert-badge">KS 인증</div>
+                    </div>
+                    <p style="margin-top: 1rem;">• 벤처기업 인증<br>
+                       • 조달청 우수제품 지정<br>
+                       • 중소기업청 기술혁신상 수상</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p>&copy; 2025 KOREA ALUMINUM CO., LTD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const productDetails = {
+            product1: {
+                title: '알루미늄 압출형재',
+                icon: '🔲',
+                description: '건축, 산업용 다목적 프로파일로 고강도와 경량성을 동시에 실현한 제품입니다.',
+                details: `
+                    <h4>제품 특징</h4>
+                    <ul>
+                        <li><strong>다양한 합금 선택:</strong> 6063 (일반 구조용), 6061 (고강도 구조용)</li>
+                        <li><strong>정밀한 치수:</strong> ±0.2mm 이내의 높은 치수 정밀도</li>
+                        <li><strong>표면처리 옵션:</strong> 아노다이징(실버, 브론즈, 블랙), 분체도장(다양한 색상)</li>
+                        <li><strong>길이:</strong> 최대 12m까지 생산 가능</li>
+                        <li><strong>응용분야:</strong> 창호, 커튼월, 산업용 프레임, 전시 부스, 클린룸</li>
+                    </ul>
+                    <h4>품질 보증</h4>
+                    <p>KS D 6759 규격 준수, 기계적 성질 및 표면 품질 전수 검사</p>
+                `
+            },
+            product2: {
+                title: '알루미늄 판재',
+                icon: '▭',
+                description: '건축 외장재, 내장재 및 각종 산업용 소재로 사용되는 고품질 판재입니다.',
+                details: `
+                    <h4>제품 특징</h4>
+                    <ul>
+                        <li><strong>합금별 특성:</strong> 1050 (가공성 우수), 5052 (내식성 우수), 6061 (고강도)</li>
+                        <li><strong>두께 범위:</strong> 0.5mm (박판)부터 50mm (후판)까지</li>
+                        <li><strong>크기:</strong> 최대 2000mm × 6000mm</li>
+                        <li><strong>표면 상태:</strong> 밀판(Mill Finish), 연마(#400~#800), 헤어라인</li>
+                        <li><strong>응용분야:</strong> 건축 외장패널, 간판, 전자기기 케이스, 금형 소재</li>
+                    </ul>
+                    <h4>가공 서비스</h4>
+                    <p>절단, 절곡, 용접, 구멍가공 등 맞춤형 가공 서비스 제공</p>
+                `
+            },
+            product3: {
+                title: '건축용 시스템 창호',
+                icon: '⬡',
+                description: '에너지 효율을 극대화한 고단열, 고기밀 시스템 창호입니다.',
+                details: `
+                    <h4>제품 특징</h4>
+                    <ul>
+                        <li><strong>단열 성능:</strong> 열관류율 1.0 W/m²K 이하 (3등급)</li>
+                        <li><strong>기밀 성능:</strong> 1등급 (최고 등급)</li>
+                        <li><strong>차음 성능:</strong> 35dB 이상</li>
+                        <li><strong>구조:</strong> 다실 구조로 결로 방지</li>
+                        <li><strong>시스템 종류:</strong> 여닫이, 미서기, 고정창, 루버</li>
+                    </ul>
+                    <h4>친환경 설계</h4>
+                    <p>저에너지 주택 및 패시브하우스에 최적화된 설계</p>
+                `
+            },
+            product4: {
+                title: '산업용 정밀 부품',
+                icon: '◈',
+                description: 'CNC 가공을 통한 고정밀 알루미늄 부품 제작 서비스입니다.',
+                details: `
+                    <h4>제품 특징</h4>
+                    <ul>
+                        <li><strong>가공 정밀도:</strong> ±0.01mm (일반), ±0.005mm (정밀가공)</li>
+                        <li><strong>가공 능력:</strong> 3축, 4축, 5축 CNC 가공</li>
+                        <li><strong>최대 크기:</strong> 1000mm × 600mm × 500mm</li>
+                        <li><strong>후처리:</strong> 아노다이징, 경질아노다이징, 무전해니켈도금</li>
+                        <li><strong>응용분야:</strong> 반도체 장비, 의료기기, 자동화 설비</li>
+                    </ul>
+                    <h4>품질 관리</h4>
+                    <p>3차원 측정기(CMM)를 통한 전수 검사 실시</p>
+                `
+            },
+            product5: {
+                title: '방열판 및 히트싱크',
+                icon: '▱',
+                description: '전자기기의 효율적인 열 관리를 위한 맞춤형 방열 솔루션입니다.',
+                details: `
+                    <h4>제품 특징</h4>
+                    <ul>
+                        <li><strong>소재:</strong> 6063 합금 (열전도율 201 W/m·K)</li>
+                        <li><strong>설계:</strong> 열유동 시뮬레이션 기반 최적 설계</li>
+                        <li><strong>핀 형상:</strong> 스트레이트, 핀형, 지그재그 등 다양한 형태</li>
+                        <li><strong>표면처리:</strong> 흑색 아노다이징 (방열 효율 향상)</li>
+                        <li><strong>응용분야:</strong> LED 조명, 파워모듈, 통신장비, 산업용 전원</li>
+                    </ul>
+                    <h4>기술 지원</h4>
+                    <p>열설계 컨설팅 및 프로토타입 제작 지원</p>
+                `
+            },
+            product6: {
+                title: '알루미늄 파이프',
+                icon: '⬢',
+                description: '구조용 및 배관용으로 사용되는 다양한 규격의 알루미늄 파이프입니다.',
+                details: `
+                    <h4>제품 특징</h4>
+                    <ul>
+                        <li><strong>형태:</strong> 원형, 사각형, 이형관</li>
+                        <li><strong>외경:</strong> Ø10mm ~ Ø300mm</li>
+                        <li><strong>두께:</strong> 1mm ~ 20mm (용도에 따라 선택)</li>
+                        <li><strong>길이:</strong> 6m 표준, 맞춤 절단 가능</li>
+                        <li><strong>응용분야:</strong> 구조물 프레임, 공압배관, 가구, 자전거 프레임</li>
+                    </ul>
+                    <h4>품질 관리</h4>
+                    <p>KS D 6701 규격 준수, 치수 및 진직도 검사</p>
+                `
+            }
+        };
+
+        function openModal(productId) {
+            const modal = document.getElementById('productModal');
+            const modalBody = document.getElementById('modalBody');
+            const product = productDetails[productId];
+            
+            modalBody.innerHTML = `
+                <div class="modal-image">${product.icon}</div>
+                <h2 style="color: #1e3c72; margin-bottom: 1rem;">${product.title}</h2>
+                <p style="font-size: 1.1rem; color: #555; margin-bottom: 1.5rem;">${product.description}</p>
+                <div style="color: #333; line-height: 1.8;">
+                    ${product.details}
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            const modal = document.getElementById('productModal');
+            if (!event || event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
